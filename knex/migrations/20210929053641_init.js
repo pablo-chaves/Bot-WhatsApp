@@ -1,11 +1,12 @@
 exports.up = async function (knex) {
   await knex.schema.createTable('users', function (table) {
-    table.string('name').primary()
+    table.increments('id').primary()
+    table.string('name')
     table.string('lastname')
     table.string('email')
     table.string('phone')
-    table.string('chat')
-    table.dateTime('created_at').notNull().defaultTo(knex.fn.now())
+    table.timestamp('created_at').defaultTo(knex.fn.now())
+    table.timestamp('updated_at').defaultTo(knex.fn.now())
   })
 }
 

@@ -8,8 +8,11 @@ module.exports = {
       host: 'localhost',
       user: 'root',
       password: '123456',
-      database: 'you_company',
+      database: 'youi_company',
       multipleStatements: true
+    },
+    migrations: {
+      directory: __dirname + '/knex/migrations'
     }
   },
 
@@ -19,8 +22,11 @@ module.exports = {
       host: 'localhost',
       user: 'root',
       password: '123456',
-      database: 'you_company',
+      database: 'youi_company',
       multipleStatements: true
+    },
+    migrations: {
+      directory: __dirname + '/knex/migrations'
     }
   },
 
@@ -30,8 +36,11 @@ module.exports = {
       host: 'localhost',
       user: 'root',
       password: '123456',
-      database: 'you_company',
+      database: 'youi_company',
       multipleStatements: true
+    },
+    migrations: {
+      directory: __dirname + '/knex/migrations'
     }
   }
 }
