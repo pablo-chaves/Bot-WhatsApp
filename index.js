@@ -4,7 +4,7 @@ const qrcode = require('qrcode-terminal')
 const ora = require('ora')
 const chalk = require('chalk')
 
-const listenMessage = require('./services/listenMessage')
+const listenMessage = require('./app/listenMessage')
 
 const SESSION_FILE_PATH = './private/session.json'
 let client

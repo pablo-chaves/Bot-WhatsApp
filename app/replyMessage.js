@@ -1,15 +1,15 @@
 const moment = require('moment')
-const { es } = require('./message/message')
+const { es } = require('../services/message/message')
 
 const { sendMessage, sendMedia, sendFile } = require('./send')
 const { saveHistorial, saveMedia } = require('./save')
 
 /**
- * Escuchamos cuando entre un mensaje
+ * Escuchamos cuando entra un mensaje
  */
 async function replyMessage ({ msg, client }) {
   let { from, body } = msg
-  saveHistorial({ number: from, message: body })
+  await saveHistorial({ number: from, message: body })
 
   const removeAccents = (str) => {
     str = str.toLowerCase()

@@ -1,3 +1,4 @@
+/* eslint-disable node/no-path-concat */
 // Update with your config settings.
 
 module.exports = {
