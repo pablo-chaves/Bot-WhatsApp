@@ -11,6 +11,14 @@ module.exports = {
       '6️⃣ Crédito hipotecario\n',
       '7️⃣ Cambio de UVR a pesos\n',
       '8️⃣ Reversión de alivio por COVID'
-    ]
+    ],
+    Reduccion: [],
+    mejora: [],
+    compra: [],
+    reportes: [],
+    negociacion: [],
+    credito: [],
+    cambio: [],
+    reversion: []
   }
 }

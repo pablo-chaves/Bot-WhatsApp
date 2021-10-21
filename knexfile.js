@@ -1,15 +1,17 @@
 /* eslint-disable node/no-path-concat */
 // Update with your config settings.
 
+require('dotenv').config()
+
 module.exports = {
 
   development: {
     client: 'mysql',
     connection: {
-      host: 'localhost',
-      user: 'root',
-      password: '123456',
-      database: 'youi_company',
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
       multipleStatements: true
     },
     migrations: {
@@ -20,10 +22,10 @@ module.exports = {
   staging: {
     client: 'mysql',
     connection: {
-      host: 'localhost',
-      user: 'root',
-      password: '123456',
-      database: 'youi_company',
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
       multipleStatements: true
     },
     migrations: {
@@ -34,10 +36,10 @@ module.exports = {
   production: {
     client: 'mysql',
     connection: {
-      host: 'localhost',
-      user: 'root',
-      password: '123456',
-      database: 'youi_company',
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
       multipleStatements: true
     },
     migrations: {
