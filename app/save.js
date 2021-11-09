@@ -2,6 +2,7 @@ const fs = require('fs')
 const ExcelJS = require('exceljs')
 const mimeDb = require('mime-db')
 const moment = require('moment')
+const chatsServices = require('../services/chats')
 
 const saveHistorial = async ({ number, message }) => {
   const pathExcel = `./assets/chats/${number}.xlsx`
@@ -48,7 +49,25 @@ const saveMedia = (media) => {
   })
 }
 
+const saveChat = async ({ userId, currentMessage, anwer }) => {
+  const questions = []
+  const chats = await chatsServices.getChats({ userId })
+  const chat = chats.find((e) => moment().diff(e.updatedAt, 'hours') < 1)
+  if (!chat) {
+    // se crea un chat en la db
+    questions.push({
+      question: currentMessage,
+      anwer
+    })
+    await chatsServices.createChats({ userId, questions: JSON.stringify(questions), currentMessage })
+  } else {
+    // se actualiza el chat en la db
+    console.log('este es el chat del usuario en el else ================================>', chat)
+  }
+}
+
 module.exports = {
   saveHistorial,
-  saveMedia
+  saveMedia,
+  saveChat
 }

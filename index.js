@@ -1,3 +1,4 @@
+require('dotenv').config()
 const fs = require('fs')
 const { Client } = require('whatsapp-web.js')
 const qrcode = require('qrcode-terminal')
@@ -6,7 +7,7 @@ const chalk = require('chalk')
 
 const listenMessage = require('./app/listenMessage')
 
-const SESSION_FILE_PATH = './private/session.json'
+const SESSION_FILE_PATH = `./private/session-${process.env.NAME_SESSION}.json`
 let client
 let sessionData
 

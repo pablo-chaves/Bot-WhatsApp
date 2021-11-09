@@ -12,7 +12,7 @@ module.exports = {
       '7️⃣ Cambio de UVR a pesos\n',
       '8️⃣ Reversión de alivio por COVID'
     ],
-    Reduccion: [],
+    reduccion: [],
     mejora: [],
     compra: [],
     reportes: [],
