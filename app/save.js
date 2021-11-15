@@ -49,20 +49,31 @@ const saveMedia = (media) => {
   })
 }
 
-const saveChat = async ({ userId, currentMessage, anwer }) => {
-  const questions = []
-  const chats = await chatsServices.getChats({ userId })
-  const chat = chats.find((e) => moment().diff(e.updatedAt, 'hours') < 1)
+const saveChat = async ({ chat, userId, currentMessage, anwer }) => {
+  let questions = []
+
   if (!chat) {
     // se crea un chat en la db
     questions.push({
       question: currentMessage,
-      anwer
+      anwer: null
     })
     await chatsServices.createChats({ userId, questions: JSON.stringify(questions), currentMessage })
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Chat creado <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
   } else {
     // se actualiza el chat en la db
-    console.log('este es el chat del usuario en el else ================================>', chat)
+    questions = JSON.parse(chat.questions)
+    const lastQuestion = questions.find((e) => e.question === chat.currentMessage)
+    lastQuestion.anwer = anwer
+
+    questions.push({
+      question: currentMessage,
+      anwer: null
+    })
+
+    await chatsServices.updateChats({ chatId: chat.id, questions: JSON.stringify(questions), currentMessage })
+    console.log(chat)
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Chat actualizdo <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
   }
 }
 

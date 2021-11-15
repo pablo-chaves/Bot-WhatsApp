@@ -6,6 +6,7 @@ const getChats = async ({ userId }) => {
       id: 'id',
       userId: 'user_id',
       questions: 'questions',
+      currentMessage: 'current_message',
       status: 'status',
       updatedAt: 'updated_at'
     })
@@ -23,7 +24,18 @@ const createChats = async ({ userId, questions, currentMessage }) => {
   return result
 }
 
+const updateChats = async ({ chatId, questions, currentMessage }) => {
+  const result = await db('chats')
+    .update({
+      questions,
+      current_message: currentMessage
+    })
+    .where('id', chatId)
+  return result
+}
+
 module.exports = {
   getChats,
-  createChats
+  createChats,
+  updateChats
 }

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
+    "start": "nodemon node index.js",
     "knex": "knex"
   },
   "keywords": [],
@@ -20,6 +20,7 @@
     "mime-db": "^1.49.0",
     "moment": "^2.29.1",
     "mysql": "^2.18.1",
+    "nodemon": "^2.0.15",
     "ora": "^5.4.0",
     "qrcode-terminal": "^0.12.0",
     "whatsapp-web.js": "^1.14.1"
